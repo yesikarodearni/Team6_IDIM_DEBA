@@ -5,7 +5,7 @@ class DBController
     private $user = "root";
     private $password = "";
     private $serverHost = "localhost";
-    private $databaseTarget = "assignment_2";
+    private $databaseTarget = "team6_tk4";
 
     function connectDB()
     {
