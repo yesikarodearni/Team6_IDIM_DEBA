@@ -1,7 +1,7 @@
 <?php 
 
     //koneksi database
-    $conn = mysqli_connect('localhost', 'root', '','assignment_2');
+    $conn = mysqli_connect('localhost', 'root', '','team6_tk4');
 
     //baca ID tertinggi
     $sql_Id = mysqli_query($conn, "SELECT SUM(JumlahPembelian) FROM Penjualan");
