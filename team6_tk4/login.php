@@ -13,7 +13,7 @@ if (isset($_SESSION['id'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,12 +65,6 @@ if (isset($_SESSION['id'])) {
 										Login
 									</a>
 									<hr>
-									<a href="index.html" class="btn btn-google btn-user btn-block">
-										<i class="fab fa-google fa-fw"></i> Login with Google
-									</a>
-									<a href="index.html" class="btn btn-facebook btn-user btn-block">
-										<i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-									</a>
 								</form>
 								<hr>
 								<div class="text-center">
