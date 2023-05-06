@@ -25,7 +25,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Dashboard</title>
+        <title>Data Pembelian</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@
         <li class="nav-item">
             <a class="nav-link" href="data_barang.php">
                 <i class="fas fa-fw fa-cog"></i>
-            <span>Daftar Barang</span></a>
+            <span>Data Barang</span></a>
         </li>
 
         
@@ -91,14 +91,14 @@
         <li class="nav-item">
             <a class="nav-link" href="data_pelanggan.php">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Daftar Pelanggan</span></a>
+                <span>Data Pelanggan</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="data_penjualan.php">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Daftar Penjualan</span></a>
+                <span>Data Penjualan</span></a>
         </li>
 
         <!-- Divider -->
@@ -113,14 +113,14 @@
         <li class="nav-item">
             <a class="nav-link" href="data_supplier.php">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Daftar Supplier</span></a>
+                <span>Data Supplier</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="data_pembelian.php">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Daftar Pembelian</span></a>
+                <span>Data Pembelian</span></a>
         </li>
 
         <!-- Divider -->
@@ -347,7 +347,7 @@
             <!-- End of Topbar -->
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Daftar Pembelian</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Data Pembelian</h1>
                     
                 </div>
 

@@ -113,7 +113,7 @@
         <li class="nav-item">
             <a class="nav-link" href="data_barang.php">
                 <i class="fas fa-fw fa-cog"></i>
-            <span>Daftar Barang</span></a>
+            <span>Data Barang</span></a>
         </li>
 
         
@@ -129,14 +129,14 @@
         <li class="nav-item">
             <a class="nav-link" href="data_pelanggan.php">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Daftar Pelanggan</span></a>
+                <span>Data Pelanggan</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="data_penjualan.php">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Daftar Penjualan</span></a>
+                <span>Data Penjualan</span></a>
         </li>
 
         <!-- Divider -->
@@ -151,14 +151,14 @@
         <li class="nav-item">
             <a class="nav-link" href="data_supplier.php">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Daftar Supplier</span></a>
+                <span>Data Supplier</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="data_pembelian.php">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Daftar Pembelian</span></a>
+                <span>Data Pembelian</span></a>
         </li>
 
         <!-- Divider -->
