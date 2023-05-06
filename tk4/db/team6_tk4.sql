@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2023 pada 18.36
+-- Waktu pembuatan: 06 Bulan Mei 2023 pada 11.31
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -18,8 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `web_kotabogor`
+-- Database: `team6_tk4`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `barang`
+--
+
+CREATE TABLE `barang` (
+  `IdBarang` int(11) NOT NULL,
+  `NamaBarang` varchar(100) NOT NULL,
+  `Keterangan` varchar(100) NOT NULL,
+  `Satuan` int(11) NOT NULL,
+  `IdPengguna` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -50,6 +64,18 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `hakakses`
+--
+
+CREATE TABLE `hakakses` (
+  `IdAkses` int(11) NOT NULL,
+  `NamaAkses` varchar(50) NOT NULL,
+  `Keterangan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -89,6 +115,67 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `IdPelanggan` int(11) NOT NULL,
+  `NamaPelanggan` varchar(100) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `TanggalLahir` date NOT NULL,
+  `IdPengguna` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pembelian`
+--
+
+CREATE TABLE `pembelian` (
+  `IdPembelian` int(11) NOT NULL,
+  `JumlahPembelian` int(11) NOT NULL,
+  `HargaBeli` double NOT NULL,
+  `IdPengguna` int(11) NOT NULL,
+  `TanggalPembelian` date NOT NULL,
+  `IdBarang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengguna`
+--
+
+CREATE TABLE `pengguna` (
+  `IdPengguna` int(11) NOT NULL,
+  `NamaPengguna` varchar(100) NOT NULL,
+  `Password` varchar(8) NOT NULL,
+  `NamaDepan` varchar(50) NOT NULL,
+  `NamaBelakang` varchar(30) NOT NULL,
+  `NoHP` varchar(12) NOT NULL,
+  `Alamat` varchar(100) NOT NULL,
+  `IdAkses` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penjualan`
+--
+
+CREATE TABLE `penjualan` (
+  `IdPenjualan` int(11) NOT NULL,
+  `JumlahPenjualan` int(11) NOT NULL,
+  `HargaJual` double NOT NULL,
+  `IdPengguna` int(11) NOT NULL,
+  `TanggalPenjualan` date NOT NULL,
+  `IdBarang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `personal_access_tokens`
 --
 
@@ -103,6 +190,19 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `IdSupplier` int(11) NOT NULL,
+  `NamaPemasok` varchar(100) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `IdPengguna` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -138,6 +238,12 @@ INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `email_verified_at`, `p
 --
 
 --
+-- Indeks untuk tabel `barang`
+--
+ALTER TABLE `barang`
+  ADD PRIMARY KEY (`IdBarang`);
+
+--
 -- Indeks untuk tabel `books`
 --
 ALTER TABLE `books`
@@ -149,6 +255,12 @@ ALTER TABLE `books`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indeks untuk tabel `hakakses`
+--
+ALTER TABLE `hakakses`
+  ADD PRIMARY KEY (`IdAkses`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -163,12 +275,42 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indeks untuk tabel `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`IdPelanggan`);
+
+--
+-- Indeks untuk tabel `pembelian`
+--
+ALTER TABLE `pembelian`
+  ADD PRIMARY KEY (`IdPembelian`);
+
+--
+-- Indeks untuk tabel `pengguna`
+--
+ALTER TABLE `pengguna`
+  ADD PRIMARY KEY (`IdPengguna`);
+
+--
+-- Indeks untuk tabel `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD PRIMARY KEY (`IdPenjualan`);
+
+--
 -- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indeks untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`IdSupplier`);
 
 --
 -- Indeks untuk tabel `users`
@@ -180,6 +322,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `IdBarang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `books`
@@ -194,16 +342,52 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `hakakses`
+--
+ALTER TABLE `hakakses`
+  MODIFY `IdAkses` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `IdPelanggan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembelian`
+--
+ALTER TABLE `pembelian`
+  MODIFY `IdPembelian` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengguna`
+--
+ALTER TABLE `pengguna`
+  MODIFY `IdPengguna` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `penjualan`
+--
+ALTER TABLE `penjualan`
+  MODIFY `IdPenjualan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `IdSupplier` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
